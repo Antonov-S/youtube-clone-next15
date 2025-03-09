@@ -1,6 +1,5 @@
 "use client";
 
-import { Suspense } from "react";
 import { trpc } from "@/trpc/client";
 
 export const PageClient = () => {

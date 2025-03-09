@@ -5,15 +5,15 @@ import { PageClient } from "./client";
 import { HydrateClient, trpc } from "@/trpc/server";
 
 export default async function Home() {
-  void trpc.hello.prefetch({ text: "Svetlozar2S" });
+  void trpc.hello.prefetch({ text: "Svetlozar" });
 
   return (
     <HydrateClient>
-      <ErrorBoundary fallback={<div>Something went wrong</div>}>
-        <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<p>Loading...</p>}>
+        <ErrorBoundary fallback={<p>Error...</p>}>
           <PageClient />
-        </Suspense>
-      </ErrorBoundary>
+        </ErrorBoundary>
+      </Suspense>
     </HydrateClient>
   );
 }
