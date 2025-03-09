@@ -17,7 +17,7 @@ import {
 interface FilterCarouselProps {
   value?: string | null;
   isLoading?: boolean;
-  onSelect: (value: string | null) => void;
+  onSelectAction: (value: string | null) => void;
   data: {
     value: string;
     label: string;
@@ -26,7 +26,7 @@ interface FilterCarouselProps {
 
 export const FilterCarousel = ({
   value,
-  onSelect,
+  onSelectAction,
   data,
   isLoading
 }: FilterCarouselProps) => {
@@ -68,7 +68,7 @@ export const FilterCarousel = ({
         <CarouselContent className="-ml-3">
           {!isLoading && (
             <CarouselItem
-              onClick={() => onSelect(null)}
+              onClick={() => onSelectAction(null)}
               className="pl-3 basis-auto"
             >
               <Badge
@@ -93,7 +93,7 @@ export const FilterCarousel = ({
               <CarouselItem
                 key={item.value}
                 className="pl-3 basis-auto"
-                onClick={() => onSelect(item.value)}
+                onClick={() => onSelectAction(item.value)}
               >
                 <Badge
                   variant={value === item.value ? "default" : "secondary"}
