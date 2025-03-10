@@ -15,7 +15,7 @@ export const CategoriesSection = ({ categoryId }: CategoriesSectionProps) => {
   return (
     <Suspense fallback={<CategoriesSkeleton />}>
       <ErrorBoundary fallback={<p>Error...</p>}>
-        <CategoriesSectionSuspense />
+        <CategoriesSectionSuspense categoryId={categoryId} />
       </ErrorBoundary>
     </Suspense>
   );
