@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
@@ -15,7 +16,6 @@ import {
   TableHeader,
   TableRow
 } from "@/components/ui/table";
-import Link from "next/link";
 
 export const VideosSection = () => {
   return (
