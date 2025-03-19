@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { format } from "date-fns";
+import { Globe2Icon, LockIcon } from "lucide-react";
 import { ErrorBoundary } from "react-error-boundary";
 
 import { trpc } from "@/trpc/client";
@@ -84,7 +85,16 @@ const VideosSectionSuspense = () => {
                         </div>
                       </div>
                     </TableCell>
-                    <TableCell>visibility</TableCell>
+                    <TableCell>
+                      <div className="flex items-center">
+                        {video.visibility === "private" ? (
+                          <LockIcon className="size-4 mr-2" />
+                        ) : (
+                          <Globe2Icon className="size-4 mr-2" />
+                        )}
+                        {snakeCaseToTitle(video.visibility)}
+                      </div>
+                    </TableCell>
                     <TableCell>
                       <div className="flex items-center">
                         {snakeCaseToTitle(video.muxStatus || "error")}
