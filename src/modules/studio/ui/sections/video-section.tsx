@@ -69,6 +69,7 @@ const VideosSectionSuspense = () => {
                             imageUrl={video.thumbnailUrl}
                             previewUrl={video.previewUrl}
                             title={video.title}
+                            duration={video.duration || 0}
                           />
                         </div>
                       </div>
