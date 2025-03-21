@@ -8,6 +8,26 @@ import { videos, videoUpdateSchema } from "@/db/schema";
 import { createTRPCRouter, protectedProcedure } from "@/trpc/init";
 
 export const videosRauter = createTRPCRouter({
+  remove: protectedProcedure
+    .input(z.object({ id: z.string().uuid() }))
+    .mutation(async ({ ctx, input }) => {
+      const { id: userId } = ctx.user;
+
+      if (!input.id) {
+        throw new TRPCError({ code: "BAD_REQUEST" });
+      }
+
+      const [removedVideo] = await db
+        .delete(videos)
+        .where(and(eq(videos.id, input.id), eq(videos.userId, userId)))
+        .returning();
+
+      if (!removedVideo) {
+        throw new TRPCError({ code: "NOT_FOUND" });
+      }
+
+      return removedVideo;
+    }),
   update: protectedProcedure
     .input(videoUpdateSchema)
     .mutation(async ({ ctx, input }) => {
@@ -32,6 +52,8 @@ export const videosRauter = createTRPCRouter({
       if (!updatedVideo) {
         throw new TRPCError({ code: "NOT_FOUND" });
       }
+
+      return updatedVideo;
     }),
   create: protectedProcedure.mutation(async ({ ctx }) => {
     const { id: userId } = ctx.user;
