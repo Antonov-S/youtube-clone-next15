@@ -5,10 +5,24 @@ import { eq, and, or, lt, desc } from "drizzle-orm";
 import { db } from "@/db";
 import { mux } from "@/lib/mux";
 import { TRPCError } from "@trpc/server";
+import { workflow } from "@/lib/workflow";
 import { videos, videoUpdateSchema } from "@/db/schema";
 import { createTRPCRouter, protectedProcedure } from "@/trpc/init";
 
 export const videosRauter = createTRPCRouter({
+  generateThumbnail: protectedProcedure
+    .input(z.object({ id: z.string().uuid() }))
+    .mutation(async ({ ctx, input }) => {
+      const { id: userId } = ctx.user;
+
+      const { workflowRunId } = await workflow.trigger({
+        url: `${process.env.UPSTASH_WORKFLOW_URL!}/api/videos/workflows/title`,
+        body: { userId, videoId: input.id },
+        retries: 3
+      });
+
+      return workflowRunId;
+    }),
   restoreThumbnails: protectedProcedure
     .input(z.object({ id: z.string().uuid() }))
     .mutation(async ({ ctx, input }) => {
