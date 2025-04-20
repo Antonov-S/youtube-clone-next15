@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { eq, and, or, lt, desc, getTableColumns } from "drizzle-orm";
+import { eq, and, or, lt, desc, getTableColumns, count } from "drizzle-orm";
 
 import {
   baseProcedure,
@@ -45,29 +45,37 @@ export const commentsRauter = createTRPCRouter({
     .query(async ({ input }) => {
       const { videoId, cursor, limit } = input;
 
-      const data = await db
-        .select({
-          ...getTableColumns(comments),
-          user: users
-        })
-        .from(comments)
-        .where(
-          and(
-            eq(comments.videoId, videoId),
-            cursor
-              ? or(
-                  lt(comments.updatedAt, cursor.updatedAt),
-                  and(
-                    eq(comments.updatedAt, cursor.updatedAt),
-                    lt(comments.id, cursor.id)
+      const [totalData, data] = await Promise.all([
+        db
+          .select({
+            count: count()
+          })
+          .from(comments)
+          .where(eq(comments.videoId, videoId)),
+        db
+          .select({
+            ...getTableColumns(comments),
+            user: users
+          })
+          .from(comments)
+          .where(
+            and(
+              eq(comments.videoId, videoId),
+              cursor
+                ? or(
+                    lt(comments.updatedAt, cursor.updatedAt),
+                    and(
+                      eq(comments.updatedAt, cursor.updatedAt),
+                      lt(comments.id, cursor.id)
+                    )
                   )
-                )
-              : undefined
+                : undefined
+            )
           )
-        )
-        .innerJoin(users, eq(comments.userId, users.id))
-        .orderBy(desc(comments.updatedAt), desc(comments.id))
-        .limit(limit + 1);
+          .innerJoin(users, eq(comments.userId, users.id))
+          .orderBy(desc(comments.updatedAt), desc(comments.id))
+          .limit(limit + 1)
+      ]);
 
       const hasMore = data.length > limit;
       //   Remove the last item if there is more data
@@ -82,6 +90,7 @@ export const commentsRauter = createTRPCRouter({
         : null;
 
       return {
+        totalCount: totalData[0].count,
         items,
         nextCursor
       };
