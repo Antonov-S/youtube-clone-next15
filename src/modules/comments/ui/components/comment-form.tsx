@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { toast } from "sonner";
-import { useUser, useClerk } from "@clerk/nextjs";
 import { useForm } from "react-hook-form";
+import { useUser, useClerk } from "@clerk/nextjs";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { trpc } from "@/trpc/client";
@@ -20,10 +20,19 @@ import {
 
 interface CommentFormProps {
   videoId: string;
+  parentId?: string;
   onSuccess?: () => void;
+  onCancel?: () => void;
+  variant?: "reply" | "comment";
 }
 
-export const CommentForm = ({ videoId, onSuccess }: CommentFormProps) => {
+export const CommentForm = ({
+  videoId,
+  parentId,
+  onSuccess,
+  onCancel,
+  variant = "comment"
+}: CommentFormProps) => {
   const clerk = useClerk();
   const { user } = useUser();
   const utils = trpc.useUtils();
@@ -56,6 +65,11 @@ export const CommentForm = ({ videoId, onSuccess }: CommentFormProps) => {
     create.mutate(values);
   };
 
+  const hadleCancel = () => {
+    form.reset();
+    onCancel?.();
+  };
+
   return (
     <Form {...form}>
       <form
@@ -76,7 +90,11 @@ export const CommentForm = ({ videoId, onSuccess }: CommentFormProps) => {
                 <FormControl>
                   <Textarea
                     {...field}
-                    placeholder="Add a comment..."
+                    placeholder={
+                      variant === "reply"
+                        ? "Reply to this comment..."
+                        : "Add a comment..."
+                    }
                     className="resize-none bg-transparent overflow-hidden min-h-0"
                   />
                 </FormControl>
@@ -86,8 +104,13 @@ export const CommentForm = ({ videoId, onSuccess }: CommentFormProps) => {
           />
 
           <div className="justify-end gap-2 mt-2 flex">
+            {onCancel && (
+              <Button variant="ghost" type="button" onClick={hadleCancel}>
+                Cancel
+              </Button>
+            )}
             <Button type="submit" size="sm" disabled={create.isPending}>
-              Comment
+              {variant === "reply" ? "Reply" : "Comment"}
             </Button>
           </div>
         </div>
