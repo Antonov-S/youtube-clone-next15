@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { CommentForm } from "./comment-form";
+import { CommentReplies } from "./comment-repllies";
 import { CommentsGetManyOutput } from "../../types";
 
 interface CommentItemProps {
@@ -90,7 +91,7 @@ export const CommentItem = ({
       <div className="flex gap-4">
         <Link href={`/users/${comment.userId}`}>
           <UserAvatar
-            size="lg"
+            size={variant === "comment" ? "lg" : "sm"}
             imageUrl={comment.user.imageUrl}
             name={comment.user.name}
           />
@@ -154,6 +155,7 @@ export const CommentItem = ({
             )}
           </div>
         </div>
+
         <DropdownMenu modal={false}>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" className="size-8">
@@ -204,6 +206,9 @@ export const CommentItem = ({
             {comment.replyCount} replies
           </Button>
         </div>
+      )}
+      {comment.replyCount > 0 && variant === "comment" && isRepliesOpen && (
+        <CommentReplies parentId={comment.id} videoId={comment.videoId} />
       )}
     </div>
   );
