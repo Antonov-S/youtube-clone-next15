@@ -6,6 +6,8 @@ import { useState } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { useAuth, useClerk } from "@clerk/nextjs";
 import {
+  ChevronDownIcon,
+  ChevronUpIcon,
   MessageSquareIcon,
   MoreVerticalIcon,
   ThumbsDownIcon,
@@ -189,6 +191,18 @@ export const CommentItem = ({
               setIsRepliesOpen(true);
             }}
           />
+        </div>
+      )}
+      {comment.replyCount > 0 && variant === "comment" && (
+        <div className="pl-14">
+          <Button
+            variant="tertiary"
+            size="sm"
+            onClick={() => setIsRepliesOpen(current => !current)}
+          >
+            {isRepliesOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+            {comment.replyCount} replies
+          </Button>
         </div>
       )}
     </div>
