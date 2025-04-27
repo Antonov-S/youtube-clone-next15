@@ -3,6 +3,7 @@ import { videosRauter } from "@/modules/videos/server/procedures";
 import { commentsRauter } from "@/modules/comments/server/procedures";
 import { categoriesRouter } from "@/modules/categories/server/procedures";
 import { videoViewsRauter } from "@/modules/video-views/server/procedures";
+import { suggestionsRauter } from "@/modules/suggestion/server/procedures";
 import { subscriptionRauter } from "@/modules/subscriptions/server/procedures";
 import { videoReactionsRauter } from "@/modules/video-reactions/server/procedures";
 import { commentReactionsRauter } from "@/modules/commnet-reactions/server/procedures";
@@ -15,6 +16,7 @@ export const appRouter = createTRPCRouter({
   comments: commentsRauter,
   categories: categoriesRouter,
   videoViews: videoViewsRauter,
+  suggestions: suggestionsRauter,
   subscriptions: subscriptionRauter,
   videoReactions: videoReactionsRauter,
   commentReactions: commentReactionsRauter
