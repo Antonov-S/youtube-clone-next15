@@ -11,7 +11,7 @@ import { UserInfo } from "@/modules/users/ui/components/user-info";
 
 interface VideoInfoProps {
   data: VideoGetManyOutput["items"][number];
-  onRemove: () => void;
+  onRemove?: () => void;
 }
 
 export const VideoInfo = ({ data, onRemove }: VideoInfoProps) => {
