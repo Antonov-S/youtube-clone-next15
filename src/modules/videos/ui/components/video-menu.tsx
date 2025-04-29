@@ -21,7 +21,11 @@ interface VideoMenuProps {
 }
 
 // TODO: implement whats left as functionality
-export const VideoMenu = ({ videoId, onRemove, variant }: VideoMenuProps) => {
+export const VideoMenu = ({
+  videoId,
+  onRemove,
+  variant = "ghost"
+}: VideoMenuProps) => {
   const onShare = () => {
     // TODO: Change if deploying outside of Vercel
     const fullUrl = `${
