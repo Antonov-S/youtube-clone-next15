@@ -1,5 +1,6 @@
-import { studioRauter } from "@/modules/studio/server/procedures";
+import { searchRauter } from "@/modules/search/server/procedure";
 import { videosRauter } from "@/modules/videos/server/procedures";
+import { studioRauter } from "@/modules/studio/server/procedures";
 import { commentsRauter } from "@/modules/comments/server/procedures";
 import { categoriesRouter } from "@/modules/categories/server/procedures";
 import { videoViewsRauter } from "@/modules/video-views/server/procedures";
@@ -13,6 +14,7 @@ import { createTRPCRouter } from "../init";
 export const appRouter = createTRPCRouter({
   studio: studioRauter,
   videos: videosRauter,
+  search: searchRauter,
   comments: commentsRauter,
   categories: categoriesRouter,
   videoViews: videoViewsRauter,
