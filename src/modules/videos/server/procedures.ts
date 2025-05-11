@@ -188,6 +188,14 @@ export const videosRauter = createTRPCRouter({
 
       // TODO: Potentially find a way to revalidate trackId and trackStatus as well
 
+      // await db
+      //   .update(videos)
+      //   .set({
+      //     muxAssetId: null,
+      //     muxUplaybackId: null
+      //   })
+      //   .where(and(eq(videos.id, input.id), eq(videos.userId, userId)));
+
       const [updatedVideo] = await db
         .update(videos)
         .set({
