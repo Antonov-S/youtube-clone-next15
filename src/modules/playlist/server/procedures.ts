@@ -15,6 +15,57 @@ import {
 } from "@/db/schema";
 
 export const playlistRauter = createTRPCRouter({
+  addVideo: protectedProcedure
+    .input(
+      z.object({ playlistId: z.string().uuid(), videoId: z.string().uuid() })
+    )
+    .mutation(async ({ input, ctx }) => {
+      const { playlistId, videoId } = input;
+      const { id: userId } = ctx.user;
+
+      const [existingPlaylist] = await db
+        .select()
+        .from(playlists)
+        .where(eq(playlists.id, playlistId));
+
+      if (!existingPlaylist) {
+        throw new TRPCError({ code: "NOT_FOUND" });
+      }
+
+      if (existingPlaylist.userId !== userId) {
+        throw new TRPCError({ code: "FORBIDDEN" });
+      }
+
+      const [existingVideo] = await db
+        .select()
+        .from(videos)
+        .where(eq(videos.id, videoId));
+
+      if (!existingVideo) {
+        throw new TRPCError({ code: "NOT_FOUND" });
+      }
+
+      const [existingPlaylistVideo] = await db
+        .select()
+        .from(playlistVideos)
+        .where(
+          and(
+            eq(playlistVideos.playlistId, playlistId),
+            eq(playlistVideos.videoId, videoId)
+          )
+        );
+
+      if (existingPlaylistVideo) {
+        throw new TRPCError({ code: "CONFLICT" });
+      }
+
+      const [createdPlaylistVideo] = await db
+        .insert(playlistVideos)
+        .values({ playlistId, videoId })
+        .returning();
+
+      return createdPlaylistVideo;
+    }),
   getManyForVideo: protectedProcedure
     .input(
       z.object({
