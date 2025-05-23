@@ -1,3 +1,4 @@
+import { usersRouter } from "@/modules/users/server/procedures";
 import { searchRauter } from "@/modules/search/server/procedure";
 import { videosRauter } from "@/modules/videos/server/procedures";
 import { studioRauter } from "@/modules/studio/server/procedures";
@@ -13,6 +14,7 @@ import { commentReactionsRauter } from "@/modules/commnet-reactions/server/proce
 import { createTRPCRouter } from "../init";
 
 export const appRouter = createTRPCRouter({
+  users: usersRouter,
   studio: studioRauter,
   videos: videosRauter,
   search: searchRauter,
