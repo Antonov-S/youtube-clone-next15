@@ -1,5 +1,3 @@
-import { Divide } from "lucide-react";
-
 interface LayoutProps {
   children: React.ReactNode;
 }

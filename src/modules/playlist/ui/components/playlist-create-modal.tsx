@@ -15,7 +15,6 @@ import {
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
-import { TRPCBuilder } from "@trpc/server";
 
 interface PlaylistCreateModalProps {
   open: boolean;

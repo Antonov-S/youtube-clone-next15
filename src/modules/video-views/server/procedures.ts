@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { eq, and, or, lt, desc } from "drizzle-orm";
+import { eq, and } from "drizzle-orm";
 
 import { createTRPCRouter, protectedProcedure } from "@/trpc/init";
 

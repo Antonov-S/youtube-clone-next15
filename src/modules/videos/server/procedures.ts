@@ -28,7 +28,6 @@ import {
   createTRPCRouter,
   protectedProcedure
 } from "@/trpc/init";
-import { use } from "react";
 
 export const videosRauter = createTRPCRouter({
   getManySubscribed: protectedProcedure
