@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="public/logo.svg" alt="Logo" width="80" height="80">
+    <img src="public/logo.svg" alt="Logo" width="100" height="100">
   </a>
 
   <h3 align="center">New Tube</h3>
@@ -14,7 +14,9 @@
 A Modern YouTube-Style App Built with Next.js 15, React 19 & a Bit of Fun
 <br />
 
-[View Demo](https://new-tube-mu.vercel.app/) &middot; [Report Bug](https://github.com/othneildrew/Best-README-Template/issues/new?labels=bug&template=bug-report---.md) &middot; [Request Feature](https://github.com/othneildrew/Best-README-Template/issues/new?labels=enhancement&template=feature-request---.md)
+[View Demo](https://new-tube-mu.vercel.app/) &middot;
+[Report Bug](https://github.com/Antonov-S/youtube-clone-next15/issues/new?labels=bug&template=bug_report.md) &middot;
+[Request Feature](https://github.com/Antonov-S/youtube-clone-next15/issues/new?labels=enhancement&template=feature_request.md)
 
 </div>
 </div>
@@ -73,8 +75,19 @@ Here’s what it delivers:
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
+- [![Bun][Bun-badge]][Bun-url]
+- [![TypeScript][TypeScript-badge]][TypeScript-url]
 - [![Next][Next.js]][Next-url]
 - [![React][React.js]][React-url]
+- [![tRPC][tRPC-badge]][tRPC-url]
+- [![Tailwind CSS][TailwindCSS-badge]][TailwindCSS-url]
+- [![Drizzle ORM][Drizzle-badge]][Drizzle-url]
+- [![Neon (Serverless PostgreSQL)][Neon-badge]][Neon-url]
+- [![Zod][Zod-badge]][Zod-url]
+- [![Upstash][Upstash-badge]][Upstash-url]
+- [![Mux][Mux-badge]][Mux-url]
+- [<img src="/UploadThing-Logo.svg" alt="UploadThing Logo" height="28" />](https://uploadthing.com/)
+- [![Sonner][Sonner-badge]][Sonner-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -223,3 +236,23 @@ Use this space to list resources you find helpful and would like to give credit 
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
+[TypeScript-badge]: https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white
+[TypeScript-url]: https://www.typescriptlang.org/
+[tRPC-badge]: https://img.shields.io/badge/tRPC-2596be?style=for-the-badge&logo=trpc&logoColor=white
+[tRPC-url]: https://trpc.io/
+[TailwindCSS-badge]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
+[TailwindCSS-url]: https://tailwindcss.com/
+[Bun-badge]: https://img.shields.io/badge/Bun-000000?style=for-the-badge&logo=bun&logoColor=white
+[Bun-url]: https://bun.sh/
+[Drizzle-badge]: https://img.shields.io/badge/Drizzle%20ORM-0A0A0A?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiByeD0iMTYiIGZpbGw9IiMwMDBGRkYiLz48L3N2Zz4=
+[Drizzle-url]: https://orm.drizzle.team/
+[Neon-badge]: https://img.shields.io/badge/Neon%20Database-1E90FF?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiByeD0iMTYiIGZpbGw9IiMxRUkwRkYiLz48L3N2Zz4=
+[Neon-url]: https://neon.tech/
+[Zod-badge]: https://img.shields.io/badge/Zod-3E66A0?style=for-the-badge&logo=zod&logoColor=white
+[Zod-url]: https://zod.dev/
+[Upstash-badge]: https://img.shields.io/badge/Upstash-DD2828?style=for-the-badge&logo=redis&logoColor=white
+[Upstash-url]: https://upstash.com/
+[Mux-badge]: https://img.shields.io/badge/Mux-EF2C4D?style=for-the-badge&logo=mux&logoColor=white
+[Mux-url]: https://www.mux.com/
+[Sonner-badge]: https://img.shields.io/badge/Sonner-1C1917?style=for-the-badge&logo=sonner&logoColor=white
+[Sonner-url]: https://sonner.emilkowal.ski/
