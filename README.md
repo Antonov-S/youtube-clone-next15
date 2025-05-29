@@ -73,21 +73,19 @@ Here’s what it delivers:
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-- [![Bun][Bun-badge]][Bun-url]
-- [![TypeScript][TypeScript-badge]][TypeScript-url]
-- [![Next][Next.js]][Next-url]
-- [![React][React.js]][React-url]
-- [![tRPC][tRPC-badge]][tRPC-url]
-- [![Tailwind CSS][TailwindCSS-badge]][TailwindCSS-url]
-- [![Drizzle ORM][Drizzle-badge]][Drizzle-url]
-- [![Neon (Serverless PostgreSQL)][Neon-badge]][Neon-url]
-- [![Zod][Zod-badge]][Zod-url]
-- [![Upstash][Upstash-badge]][Upstash-url]
-- [![Mux][Mux-badge]][Mux-url]
-- [<img src="/UploadThing-Logo.svg" alt="UploadThing Logo" height="28" />](https://uploadthing.com/)
-- [![Sonner][Sonner-badge]][Sonner-url]
+[![Bun][Bun-badge]][Bun-url]
+[![TypeScript][TypeScript-badge]][TypeScript-url]
+[![Next][Next.js]][Next-url]
+[![React][React.js]][React-url]
+[![tRPC][tRPC-badge]][tRPC-url]
+[![Tailwind CSS][TailwindCSS-badge]][TailwindCSS-url]
+[![Drizzle ORM][Drizzle-badge]][Drizzle-url]
+[![Neon (Serverless PostgreSQL)][Neon-badge]][Neon-url]
+[![Zod][Zod-badge]][Zod-url]
+[![Upstash][Upstash-badge]][Upstash-url]
+[![Mux][Mux-badge]][Mux-url]
+[![Sonner][Sonner-badge]][Sonner-url]
+[<img src="public/UploadThing-Logo.svg" alt="UploadThing Logo" height="32" />](https://uploadthing.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -95,36 +93,50 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+```NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/
+NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/
+CLERK_SIGNING_SECRET=
+NEXT_PUBLIC_APP_URL_WEBHOOK=
+NEXT_PUBLIC_APP_URL=
+UPSTASH_REDIS_REST_URL=
+UPSTASH_REDIS_REST_TOKEN=
+MUX_TOKEN_ID=
+MUX_TOKEN_SECRET=
+MUX_WEBHOOK_SECRET=
+UPLOADTHING_TOKEN=
+QSTASH_TOKEN=
+UPSTASH_WORKFLOW_URL=
+QSTASH_CURRENT_SIGNING_KEY=
+QSTASH_NEXT_SIGNING_KEY=
+OPENAI_API_KEY=
+DATABASE_URL=
+```
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+1. Adding .env.local file with all required environment variables
 
-1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/Antonov-S/youtube-clone-next15
    ```
-3. Install NPM packages
+3. Install the packages
+
    ```sh
-   npm install
+   bun install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
-   ```
-5. Change git remote url to avoid accidental pushes to base project
+
+   ⚠️ Note: Some package managers may throw warnings or errors related to peer dependencies, especially with the recent release of React 19. This can prevent installation unless you pass the --legacy-peer-deps flag.
+
+   To avoid these issues, this project uses Bun as the package manager, which handles peer dependencies more gracefully.
+
+4. Change git remote url to avoid accidental pushes to base project
    ```sh
    git remote set-url origin github_username/repo_name
    git remote -v # confirm the changes
@@ -136,9 +148,11 @@ _Below is an example of how you can instruct your audience on installing and set
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+### Screenshots
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### Application Nav
+
+![Application Nav](/public//new_tube_next_nav.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -146,15 +160,44 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-  - [ ] Chinese
-  - [ ] Spanish
+## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+- [x] Basic layout
+- [x] Authentication
+- [x] Database setup
+- [x] Webhook sync
+- [x] TRPC setup
+- [x] TRPC configuration
+- [x] Video categories
+- [x] Studio layout
+- [x] Studio videos
+- [x] Infinite loading
+- [x] Mux integration
+- [x] Mux webhooks
+- [x] Video form
+- [x] Video thumbnails
+- [x] AI background jobs
+- [x] AI thumbnails
+- [x] Video page
+- [x] Video views
+- [x] Video reactions
+- [x] Subscriptions
+- [x] Comments
+- [x] Comments infinite loading
+- [x] Comment reactions
+- [x] Comment replies
+- [x] Suggestions
+- [x] Search page
+- [x] Improvements
+- [x] Home feed
+- [x] Playlists
+- [x] Custom playlists
+- [x] Populating playlists
+- [x] Individual playlist
+- [x] User page
+- [x] Banner upload
+- [x] Subscriptions list
+- [x] Final improvements
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -162,9 +205,7 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Any contributions you make are **greatly appreciated**. If you have a suggestion that would make this better, please fork the repo and create a pull request.
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
@@ -172,12 +213,6 @@ Don't forget to give the project a star! Thanks again!
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-### Top contributors:
-
-<a href="https://github.com/othneildrew/Best-README-Template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
-</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
