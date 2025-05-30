@@ -3,24 +3,24 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="public/logo.svg" alt="Logo" width="100" height="100">
+  <a href="https://new-tube-mu.vercel.app">
+    <img src="public/logo.svg" alt="Logo" width="100" height="100" />
   </a>
 
   <h3 align="center">New Tube</h3>
 
-  <div align="center">
-
-A Modern YouTube-Style App Built with Next.js 15, React 19 & a Bit of Fun
-<br />
-
-[View Demo](https://new-tube-mu.vercel.app/) &middot;
-[Report Bug](https://github.com/Antonov-S/youtube-clone-next15/issues/new?labels=bug&template=bug_report.md) &middot;
-[Request Feature](https://github.com/Antonov-S/youtube-clone-next15/issues/new?labels=enhancement&template=feature_request.md)
-
+  <p align="center">
+    A Modern YouTube-Style App Built with Next.js 15, React 19 & a Bit of Fun
+    <br />
+    <a href="https://new-tube-mu.vercel.app/">View Demo</a>
+    &middot;
+    <a href="https://github.com/Antonov-S/youtube-clone-next15/issues/new?labels=bug&template=bug_report.md">Report Bug</a>
+    &middot;
+    <a href="https://github.com/Antonov-S/youtube-clone-next15/issues/new?labels=enhancement&template=feature_request.md">Request Feature</a>
+  </p>
 </div>
-</div>
 
+<!-- TABLE OF CONTENTS -->
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -29,6 +29,8 @@ A Modern YouTube-Style App Built with Next.js 15, React 19 & a Bit of Fun
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#why-we-use-trpc">Why We Use tRPC</a></li>
+        <li><a href="#built-for-fun-not-production">Built for Fun, Not Production</a></li>
       </ul>
     </li>
     <li>
@@ -38,7 +40,7 @@ A Modern YouTube-Style App Built with Next.js 15, React 19 & a Bit of Fun
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#📸-sneak-peek">📸 Sneak Peek</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -69,9 +71,33 @@ Here’s what it delivers:
 
 - Designed to be fully responsive, ensuring seamless use across desktop and mobile devices for watching, uploading, and organizing content.
 
+### 🧩 Why We Use tRPC
+
+tRPC was chosen for this project because it offers end-to-end type safety and tight integration with React Query, automatically generating hooks like useQuery and useMutation for each procedure. Unlike Hono RPC, tRPC v11 enables authenticated prefetching directly in server components, solving the issue of lost headers and allowing faster, secure data fetching with full access to user context.
+
+This makes it ideal for implementing the "render as you fetch" pattern, improving load times and enabling seamless use of React Server Components as data loaders.
+
+### 🎯 Built for Fun, Not Production
+
+This project was built as a modern hobby experiment — showcasing Next.js 15, React 19, the “render as you fetch” pattern, tRPC, and integrations like Mux, Clerk, and OpenAI — but it's not intended for production use. There are several practical limitations worth noting:
+
+- Large video uploads are intentionally limited due to the high cost of video storage.
+
+- AI-powered features like subtitle and title generation currently rely on English audio only.
+
+- Playlists are available to logged-in users, with no public browsing.
+
+- Comment threads support a single level of replies — replies to replies aren’t threaded further.
+
+- Search and video categories are functional, but basic.
+
+- And of course, some things are simplified or missing altogether by design.
+
+Think of this project as a sandbox: fun to explore, educational to build, but not quite ready to host your next viral video platform.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Built With
+## Built With
 
 [![Bun][Bun-badge]][Bun-url]
 [![TypeScript][TypeScript-badge]][TypeScript-url]
@@ -146,19 +172,32 @@ DATABASE_URL=
 
 <!-- USAGE EXAMPLES -->
 
-## Usage
+## 📸 Sneak Peek
 
-### Screenshots
+### Homepage
 
-### Application Nav
+![Homepage - Desktop](/public/home.png)
+![Homepage - Mobile](/public/home-mobile.png)
 
-![Application Nav](/public//new_tube_next_nav.png)
+### Creator Studio
+
+![Studio Dashboard](/public/studio.png)
+![Studio Video Editor](/public/studio-video.png)
+
+### User Features
+
+![User Profile](/public/profile.png)
+![Subscriptions](/public/subscriptions.png)
+![History](/public/history.png)
+![Comments Section](/public/comments.png)
+
+### Navigation
+
+![Application Navigation](/public/new_tube_next_nav.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
-
-## Roadmap
 
 ## Roadmap
 
@@ -167,13 +206,11 @@ DATABASE_URL=
 - [x] Database setup
 - [x] Webhook sync
 - [x] TRPC setup
-- [x] TRPC configuration
 - [x] Video categories
 - [x] Studio layout
 - [x] Studio videos
 - [x] Infinite loading
-- [x] Mux integration
-- [x] Mux webhooks
+- [x] Mux integration and webhooks
 - [x] Video form
 - [x] Video thumbnails
 - [x] AI background jobs
@@ -188,7 +225,6 @@ DATABASE_URL=
 - [x] Comment replies
 - [x] Suggestions
 - [x] Search page
-- [x] Improvements
 - [x] Home feed
 - [x] Playlists
 - [x] Custom playlists
@@ -205,8 +241,7 @@ DATABASE_URL=
 
 ## Contributing
 
-Any contributions you make are **greatly appreciated**. If you have a suggestion that would make this better, please fork the repo and create a pull request.
-Don't forget to give the project a star! Thanks again!
+Any contributions you make are **greatly appreciated**. If you have a suggestion that would make this better, please fork the repo and create a pull request. If you like the project, please give it a ⭐
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -220,7 +255,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-Distributed under the Unlicense License. See `LICENSE.txt` for more information.
+This project is **not licensed**. All rights are reserved by the author.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -228,9 +263,9 @@ Distributed under the Unlicense License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+S. Antonov - anto1nov1@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://new-tube-mu.vercel.app](https://new-tube-mu.vercel.app)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -238,35 +273,20 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+🚀 Super generous free tiers:
 
-- [Choose an Open Source License](https://choosealicense.com)
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-- [Malven's Grid Cheatsheet](https://grid.malven.co/)
-- [Img Shields](https://shields.io)
-- [GitHub Pages](https://pages.github.com)
-- [Font Awesome](https://fontawesome.com)
-- [React Icons](https://react-icons.github.io/react-icons/search)
+- [Clerk](https://clerk.com)
+- [Neon](https://neon.tech)
+- [UploadThing](https://uploadthing.com)
+- [Upstash](https://upstash.com)
+
+🤏 …and then we have the “not quite as generous, but still helpful” crew:
+
+- [OpenAI](https://openai.com)
+- [Mux](https://mux.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
