@@ -21,7 +21,6 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
-<!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -30,7 +29,7 @@
       <ul>
         <li><a href="#built-with">Built With</a></li>
         <li><a href="#why-we-use-trpc">Why We Use tRPC</a></li>
-        <li><a href="#built-for-fun-not-production">Built for Fun, Not Production</a></li>
+<li><a href="#built-for-fun-not-production">Built for Fun, Not Production</a></li>
       </ul>
     </li>
     <li>
@@ -40,7 +39,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#📸-sneak-peek">📸 Sneak Peek</a></li>
+    <li><a href="#sneak-peek">Sneak Peek</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -71,13 +70,13 @@ Here’s what it delivers:
 
 - Designed to be fully responsive, ensuring seamless use across desktop and mobile devices for watching, uploading, and organizing content.
 
-### 🧩 Why We Use tRPC
+### Why We Use tRPC
 
 tRPC was chosen for this project because it offers end-to-end type safety and tight integration with React Query, automatically generating hooks like useQuery and useMutation for each procedure. Unlike Hono RPC, tRPC v11 enables authenticated prefetching directly in server components, solving the issue of lost headers and allowing faster, secure data fetching with full access to user context.
 
 This makes it ideal for implementing the "render as you fetch" pattern, improving load times and enabling seamless use of React Server Components as data loaders.
 
-### 🎯 Built for Fun, Not Production
+### Built for Fun, Not Production
 
 This project was built as a modern hobby experiment — showcasing Next.js 15, React 19, the “render as you fetch” pattern, tRPC, and integrations like Mux, Clerk, and OpenAI — but it's not intended for production use. There are several practical limitations worth noting:
 
@@ -172,7 +171,7 @@ DATABASE_URL=
 
 <!-- USAGE EXAMPLES -->
 
-## 📸 Sneak Peek
+## Sneak Peek
 
 ### Homepage
 
